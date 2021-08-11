@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  nginx:
+    build: .
+    container_name: mod-security-nginx
+    environment:
+     - NGINX_HOST=foobar.com
+     - NGINX_PORT=80
+    volumes:
+      - ./templates:/etc/nginx/templates
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
